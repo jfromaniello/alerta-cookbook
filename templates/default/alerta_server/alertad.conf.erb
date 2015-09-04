@@ -1,0 +1,27 @@
+<% if @auth[:oauth2_client_id] -%>
+OAUTH2_CLIENT_ID = "<%= @auth[:oauth2_client_id] %>"
+OAUTH2_CLIENT_SECRET = "<%= @auth[:oauth2_client_secret] %>"
+<% end -%>
+
+<% if @auth[:allowed_github_orgs] -%>
+ALLOWED_GITHUB_ORGS = <%= @auth[:allowed_github_orgs].to_s() %>
+<% end -%>
+
+<% if @auth[:allowed_email_domains] -%>
+ALLOWED_EMAIL_DOMAINS = <%= @auth[:allowed_email_domains].to_s() %>
+<% end -%>
+
+<% if @auth[:required] -%>
+AUTH_REQUIRED = True
+<% end -%>
+
+<% if @secret_key -%>
+SECRET_KEY = "<%= @secret_key %>"
+<% end -%>
+
+
+<% if @plugins -%>
+PLUGINS = <%= @plugins.to_s() %>
+<% end -%>
+
+DEBUG = True

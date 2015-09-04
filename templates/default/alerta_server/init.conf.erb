@@ -1,0 +1,25 @@
+# strider configuration
+
+start on (local-filesystems and net-device-up IFACE=eth0)
+stop on shutdown
+
+respawn
+respawn limit 15 5
+
+
+post-start script
+  exec >> /var/log/$UPSTART_JOB.log 2>&1
+  echo "`date`: starting $UPSTART_JOB"
+end script
+
+post-stop script
+  exec >> /var/log/$UPSTART_JOB.log 2>&1
+  echo "`date`: stopped $UPSTART_JOB"
+end script
+
+exec start-stop-daemon \
+  --make-pidfile \
+  --pidfile /var/run/$UPSTART_JOB.pid \
+  --chuid alerta-server \
+  --start \
+  --exec /usr/local/bin/alertad >> /var/log/$UPSTART_JOB.log 2>&1

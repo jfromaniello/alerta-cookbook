@@ -1,0 +1,9 @@
+default['alerta']['auth']['provider'] = 'basic'
+default['alerta']['auth']['oauth2_client_id'] = false
+default['alerta']['auth']['oauth2_client_secret'] = false
+default['alerta']['auth']['allowed_github_orgs'] = false
+default['alerta']['auth']['allowed_email_domains'] = false
+default['alerta']['auth']['required'] = false
+default['alerta']['secret_key'] = false
+default['alerta']['plugins'] = false
+default['alerta']['url'] = 'http://try.alerta.io'

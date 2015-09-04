@@ -1,0 +1,11 @@
+'use strict';
+
+angular.module('config', [])
+  .constant('config', {
+    'endpoint'    : window.location.origin
+    , 'provider'  : "<%= @auth[:provider] %>"
+    <% if @auth[:oauth2_client_id] %>
+    , 'client_id' : "<%= @auth[:oauth2_client_id] %>"
+    <% end %>
+  })
+  .constant('colors', {}); // use default colors
