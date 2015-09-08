@@ -18,8 +18,8 @@ class ServiceIntegration(PluginBase):
 
     def post_receive(self, alert):
 
-        # if alert.repeat:
-        #     return
+        if alert.repeat:
+            return
 
         url = SLACK_WEBHOOK_URL
 
